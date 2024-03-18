@@ -9,7 +9,7 @@
 <body>
 
 <div class="contact-form-container">
-    <form id="contact-form">
+    <form action="g-recaptcha-response.php" method="POST" id="contact-form">
         <h2>Contact Us</h2>
         <div class="form-field">
             <label for="name">Name</label>
@@ -23,11 +23,13 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="4" required></textarea>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LfAP5wpAAAAAOlOew57jmn9G4JuHhM3KQJtblGV"></div>
         <button type="submit">Send Message</button>
     </form>
 </div>
 
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LfAP5wpAAAAAOlOew57jmn9G4JuHhM3KQJtblGV"></script>
 <script src="script.js"></script>
 </body>
 </html>
