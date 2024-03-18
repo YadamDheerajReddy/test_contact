@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recaptchaResponse = $_POST['g-recaptcha-response'];
-    $secretKey = "6LfAP5wpAAAAAFd3shLwRmI18fVGgcipzfKlMlX0";
+    $secretKey = "6LeiTpwpAAAAAPxwteyVSZkdE1OJoCUFpr8otbft";
     $remoteIP = $_SERVER['REMOTE_ADDR'];
 
     // Make a POST request to the Google reCAPTCHA Server
