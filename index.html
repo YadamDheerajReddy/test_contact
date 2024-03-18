@@ -23,12 +23,34 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="4" required></textarea>
         </div>
-        <button type="submit" class="g-recaptcha" data-sitekey="6LeiTpwpAAAAAKK8DjNs9xW35TSNoXGxXi8wXuAc">Send Message</button>
+        <div class="g-recaptcha" data-sitekey="6LeiTpwpAAAAAKK8DjNs9xW35TSNoXGxXi8wXuAc" data-callback="captchaVerified" data-expired-callback="captchaExpired"></div>
+        <p id="captcha-error" style="color: red; display: none;">CAPTCHA not verified.</p>
+
+        <button type="submit">Submit</button>
     </form>
 </div>
 
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="script.js"></script>
+<script>
+    let isCaptchaVerified = false;
+
+    function captchaVerified() {
+        isCaptchaVerified = true;
+        document.getElementById('captcha-error').style.display = 'none';
+    }
+
+    function captchaExpired() {
+        isCaptchaVerified = false;
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        if (!isCaptchaVerified) {
+            event.preventDefault();
+            document.getElementById('captcha-error').style.display = 'block';
+        }
+    });
+</script>
 </body>
 </html>
